@@ -1,0 +1,19 @@
+# Personal data -- never commit the real knowledge base
+Mine (not in GitHub)/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor/IDE
+.vscode/
+.idea/
+*.sublime-workspace
+
+# LaTeX build artifacts, if you compile locally
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
