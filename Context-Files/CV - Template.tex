@@ -1,0 +1,458 @@
+\documentclass[a4paper]{article}
+
+% ============================================================
+%  ENGINE -- LAYOUT & TYPESETTING LOGIC ONLY
+%  Nothing below this block depends on the content above it.
+%  An LLM filling in CV content should never
+%  edit anything between here and "END ENGINE" -- only the
+%  CONTENT ZONE that follows it. See the command reference at
+%  the end of this block for the full editable API.
+% ============================================================
+
+% -------------------- 1. PACKAGES ---------------------------
+% Page layout & structure
+\usepackage[top=0.55in, bottom=0.55in, left=0.55in, right=0.55in]{geometry}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+% Lists & section titles
+\usepackage{enumitem}
+\usepackage{titlesec}
+% Typography & symbols
+\usepackage{charter}
+\usepackage{fontawesome5}
+\usepackage{latexsym}
+\usepackage{marvosym}
+\usepackage{pifont}
+% Colors & hyperlinks
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+% -------------------- 2. PAGE LAYOUT -------------------------
+\setlength{\footskip}{3.60004pt}
+\urlstyle{rm}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% -------------------- 3. COLORS & HYPERLINKS ------------------
+\hypersetup{
+  colorlinks,
+  linkcolor={red!50!black},
+  citecolor={blue!50!black},
+  urlcolor={blue!50!black}
+}
+
+% -------------------- 4. SECTION TITLE FORMAT -----------------
+\titleformat{\section}{\vspace{-10pt}\bfseries\raggedright\large}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
+
+% -------------------- 5. LIST CONFIGURATION --------------------
+% Level 1: main entries (roles, projects, education)
+\setlist[itemize,1]{leftmargin=*, topsep=6pt, itemsep=6pt, parsep=0pt, before={\vspace{2pt}}}
+% Level 2: bullets within an entry
+\setlist[itemize,2]{leftmargin=2em, topsep=3pt, itemsep=2pt, parsep=0pt}
+% Compact list -- used by Technical Capabilities & Languages
+\newlist{compactitemize}{itemize}{1}
+\setlist[compactitemize]{label=\textbullet, labelsep=0.5em, leftmargin=*, topsep=4pt, itemsep=2pt, parsep=0pt, before={\vspace{2pt}}}
+\renewcommand{\labelitemii}{$\circ$}
+% Dash sub-bullets -- one level deeper than a normal entry (e.g. inside Training & Development)
+\newcommand{\resumeSubBulletListStart}{\begin{itemize}[label=--, nosep, leftmargin=2em]}
+\newcommand{\resumeSubBulletListEnd}{\end{itemize}}
+
+% -------------------- 6. HEADER BUILDING BLOCKS -----------------
+% Vertical-bar separator between contact items
+\newsavebox\ContactSeparatorBox
+\sbox\ContactSeparatorBox{$|$}
+\newcommand{\ContactSeparator}{\unskip\cleaders\copy\ContactSeparatorBox\hskip\wd\ContactSeparatorBox\ignorespaces}
+% Centered, slightly-leaded header block
+\newenvironment{documentHeader}{\setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}}{\par\kern\topsep}
+
+% -------------------- 7. ENTRY COMMANDS --------------------------
+% A single bullet, fixed 10/12 font sizing for consistent leading
+\newcommand{\resumeItem}[1]{\item{\fontsize{10}{12}\selectfont #1}}
+% A bullet with a bold leading label (Technical Capabilities, Languages)
+\newcommand{\resumeSubItem}[2]{\resumeItem{\textbf{#1} #2}}
+% Two-line entry: Org/Institution + Location, then Role + Date
+% Used by: Training & Development, Model Releases (Experience)
+\newcommand{\resumeSubheading}[4]{%
+  \item
+  \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{#3} & \textit{#4}
+  \end{tabular*}%
+}
+% One-line entry: Title + italic subtitle, Date
+% Used by: Projects & Research, Industry Initiatives
+\newcommand{\projectSubheading}[3]{%
+  \item
+  \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    \textbf{#1} \textit{#2} & #3 \\
+  \end{tabular*}%
+}
+% Two-line entry purpose-built for certifications / courses / evaluations:
+% Title + Date on row 1, issuing body in italics on row 2.
+% (This replaces reusing \resumeSubheading with a blank 2nd argument,
+%  which leaves a stray empty cell next to the title.)
+\newcommand{\cvCertification}[3]{%
+  \item
+  \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #3 \\
+    \textit{#2} & \\
+  \end{tabular*}%
+}
+
+% -------------------- 8. LIST WRAPPERS -----------------------------
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+\newcommand{\projectSubheadingListStart}{\begin{itemize}}
+\newcommand{\projectSubheadingListEnd}{\end{itemize}}
+
+% -------------------- 9. SPACING HELPERS -----------------------------
+\newcommand{\educationMulticolVSpaceBefore}{\vspace{-2pt}}
+\newcommand{\educationMulticolVSpaceAfter}{\vspace{-11pt}}
+\newcommand{\headerBottomVSpace}{\vspace{2.5pt}}
+
+% ============================================================
+%  END ENGINE
+% ------------------------------------------------------------
+%  COMMAND REFERENCE -- the full editable API for this template
+%
+%  \resumeSubheading{Org}{Location}{Role}{Dates}
+%      Two-line header entry. Org/Location on row 1, Role/Dates on row 2.
+%      Used by: Training & Development, Model Releases.
+%
+%  \projectSubheading{Title}{Subtitle}{Date}
+%      One-line header entry. Title + italic subtitle on the left, date right.
+%      Used by: Projects & Research, Industry Initiatives.
+%
+%  \cvCertification{Title}{Issuer}{Date}
+%      Two-line header entry for certifications/courses/evaluations.
+%      Used by: Safety, Evaluation & Compliance.
+%
+%  \resumeItem{text}                 -- a single bullet
+%  \resumeSubItem{Bold label}{text}  -- a bullet with a bold leading label
+%
+%  \resumeSubHeadingListStart / \resumeSubHeadingListEnd
+%      Wraps a block of \resumeSubheading entries.
+%  \projectSubheadingListStart / \projectSubheadingListEnd
+%      Wraps a block of \projectSubheading or \cvCertification entries.
+%  \resumeItemListStart / \resumeItemListEnd
+%      Wraps the bullets belonging to one entry.
+%  \resumeSubBulletListStart / \resumeSubBulletListEnd
+%      A dash-style nested bullet list, one level deeper than normal.
+%  compactitemize (environment)
+%      Bullet list used for Technical Capabilities / Languages rows.
+%
+%  Bullet length -- font (10pt Charter) and column width (0.97\textwidth)
+%  are the drafting reference; no fixed character count (CV - Rules.md
+%  Rule 1).
+% ============================================================
+
+\begin{document}
+
+% ============================================================
+%  CONTENT ZONE -- everything below is safe to edit/regenerate.
+%  This is the ONE source-of-truth file: every section, every
+%  entry, every bullet shape the engine supports. Compiled as-is,
+%  it IS the full master CV, and the only file needed to derive a
+%  1-page version -- no separate file required. Page count changes
+%  whenever entries change; verify by compiling.
+%
+%  Every entry below carries a "1-PAGE TIER" tag (CORE/TRIM/CUT) --
+%  see `CV - Rules.md` Rule 33 for what they mean and how to derive
+%  a 1-page version from this file.
+%
+%  CONTENT DISCLAIMER: the "Claude" entries below exist to demonstrate
+%  command usage and the 1-PAGE TIER system only. Wording is
+%  illustrative, not a rule-compliance reference -- see
+%  `CV - Rules.md` for the actual CV rules. Do not copy phrasing
+%  patterns from this file into a real CV.
+% ============================================================
+
+% ---------------- HEADER ----------------
+\begin{documentHeader}
+\textbf{{\Huge Claude}}\\
+\vspace{-8pt}
+\Large Frontier AI Model Family \textemdash{} Anthropic, PBC
+
+\vspace{-4pt}
+\normalsize
+\kern 1.0pt
+\vspace{2pt}
+
+\mbox{{\color{black}\footnotesize\faMapMarker*}\hspace*{0.13cm}San Francisco, California, USA}%
+\kern 0.25 cm%
+\ContactSeparator%
+\kern 0.25 cm%
+\mbox{\textcolor{black}{\footnotesize\faEnvelope[regular]} \href{mailto:claude@anthropic.com}{claude@anthropic.com}}%
+\kern 0.25 cm%
+\ContactSeparator%
+\kern 0.25 cm%
+\mbox{\textcolor{black}{\footnotesize\faPhone*} \href{tel:+14155550188}{+1 (415) 555-0188}}\\
+\mbox{\textcolor{black}{\footnotesize\faLinkedinIn} \href{https://www.linkedin.com/company/anthropicresearch/}{anthropicresearch}}%
+\kern 0.25 cm%
+\ContactSeparator%
+\kern 0.25 cm%
+\mbox{\textcolor{black}{\footnotesize\faGithub} \href{https://github.com/anthropics}{anthropics}}
+\headerBottomVSpace
+\end{documentHeader}
+% NOTE: email/phone above are illustrative placeholders (Claude has no
+% personal inbox or phone line) -- everything else is a real, live link.
+% Header is always kept -- there is no 1-PAGE TIER tag for it.
+
+% ---------------- TRAINING & DEVELOPMENT ----------------
+\section{Training \& Development}
+\resumeSubHeadingListStart
+% [1-PAGE TIER: TRIM -- keep the heading + multicols stat pair; cut the
+%  fine-tuning-cadence sub-entry and its dash sub-bullet below.]
+% NOTE: full Constitutional AI facts (RLAIF, written constitution) live
+% once, under Projects & Research below. This sub-entry demonstrates
+% \resumeSubBulletListStart with a DIFFERENT, non-duplicated fact --
+% don't restate the Projects & Research content here. See `CV - Rules.md`,
+% "On duplication."
+\resumeSubheading
+  {Anthropic, PBC}{San Francisco, CA}
+  {Pretraining, Fine-Tuning \& Constitutional AI}{Jan 2021 -- Present}
+\resumeItemListStart
+\educationMulticolVSpaceBefore
+\begin{multicols}{2}
+  \resumeItem{\textbf{Knowledge cutoff:} May 2025.}
+  \resumeItem{\textbf{Context window:} up to \textbf{1M} tokens.}
+\end{multicols}
+\educationMulticolVSpaceAfter
+\resumeItem{\textbf{Fine-Tuning Cadence} \textit{-- Post-Training} \hfill Ongoing}
+\resumeSubBulletListStart
+  \resumeItem{Iterates through \textbf{RLHF} and targeted fine-tuning passes between major model releases.}
+\resumeSubBulletListEnd
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+% ---------------- MODEL RELEASES ----------------
+\section{Model Releases}
+\resumeSubHeadingListStart
+
+% [1-PAGE TIER: TRIM -- keep bullets 1-3, cut bullet 4]
+% Claude Opus 4.8 / Sonnet 5 / Haiku 4.5
+\resumeSubheading
+  {Anthropic, PBC \textmd{\textit{-- \href{https://www.anthropic.com/news}{Announcements}}}}{San Francisco, CA}
+  {\textbf{Claude Opus 4.8 / Sonnet 5 / Haiku 4.5} -- Flagship Model Family}{May 2026 -- Present}
+\resumeItemListStart
+  \resumeItem{Serves as Anthropic's flagship lineup across \textbf{Opus}, \textbf{Sonnet} \& \textbf{Haiku}, powering Claude.ai.}
+  \resumeItem{Extends \textbf{Claude 4}-era agentic workflows across \textbf{Claude Code}, \textbf{Claude in Chrome} \& \textbf{Cowork}.}
+  \resumeItem{Operates under Anthropic's \textbf{Responsible Scaling Policy}, vetted by independent evaluators.}
+  \resumeItem{Supports a \textbf{200K}-token context window, with extended windows in select deployments.}
+\resumeItemListEnd
+
+% [1-PAGE TIER: TRIM -- keep bullets 1-3, cut bullet 4]
+% Claude 4 Generation
+\resumeSubheading
+  {Anthropic, PBC}{San Francisco, CA}
+  {\textbf{Claude 4 Generation} -- Opus 4 \& Sonnet 4}{May 2025 -- Apr 2026}
+\resumeItemListStart
+  \resumeItem{Brought \textbf{Claude Code} to general availability across terminal, IDE \& web.}
+  \resumeItem{Introduced extended, interleaved thinking with \textbf{parallel tool-calling} for long tasks.}
+  \resumeItem{Established \textbf{computer use} as a standard agentic capability across the model family.}
+  \resumeItem{Expanded enterprise adoption via \textbf{Claude for Enterprise} and deeper \textbf{MCP} integrations.}
+\resumeItemListEnd
+
+% [1-PAGE TIER: CORE -- all 3 bullets now fit; keep as-is]
+% Claude 3.7 Sonnet
+\resumeSubheading
+  {Anthropic, PBC}{San Francisco, CA}
+  {\textbf{Claude 3.7 Sonnet -- Hybrid Reasoning Model} -- \href{https://www.anthropic.com/news}{Announcement}}{Feb 2025 -- May 2025}
+\resumeItemListStart
+  \resumeItem{Introduced \textbf{hybrid reasoning}: a standard mode plus an extended thinking mode.}
+  \resumeItem{Launched alongside \textbf{Claude Code}, Anthropic's first agentic command-line coding tool.}
+  \resumeItem{Improved agentic coding, becoming a preferred model for \textbf{SWE-bench}-style tasks.}
+\resumeItemListEnd
+
+% [1-PAGE TIER: CUT -- omit this entire entry for a 1-page version]
+% Claude 3.5 Sonnet (New) -- Computer Use
+\resumeSubheading
+  {Anthropic, PBC \textmd{\textit{-- \href{https://www.anthropic.com/news/3-5-models-and-computer-use}{Announcement}}}}{San Francisco, CA}
+  {\textbf{Claude 3.5 Sonnet (New)} -- Computer Use Pioneer}{Oct 2024 -- Feb 2025}
+\resumeItemListStart
+  \resumeItem{Shipped \textbf{computer use} in beta -- the first model able to view a screen and act on it.}
+  \resumeItem{Upgraded coding performance over the original \textbf{3.5 Sonnet}, same \textbf{200K} context.}
+  \resumeItem{Opened computer use to developers via the \textbf{API}, enabling desktop-control agents.}
+\resumeItemListEnd
+
+% [1-PAGE TIER: CUT]
+% Claude 3.5 Sonnet
+\resumeSubheading
+  {Anthropic, PBC}{San Francisco, CA}
+  {\textbf{Claude 3.5 Sonnet}}{Jun 2024 -- Oct 2024}
+\resumeItemListStart
+  \resumeItem{Outperformed the larger \textbf{Claude 3 Opus} on benchmarks at roughly \textbf{80\%} lower cost.}
+  \resumeItem{Introduced \textbf{Artifacts}, a side-by-side workspace for code, documents \& diagrams.}
+  \resumeItem{Became Anthropic's fastest mid-tier model at the time, balancing intelligence with low latency.}
+\resumeItemListEnd
+
+% [1-PAGE TIER: CUT]
+% Claude 3 Family
+\resumeSubheading
+  {Anthropic, PBC}{San Francisco, CA}
+  {\textbf{Claude 3 Family} -- Opus, Sonnet \& Haiku}{Mar 2024 -- Jun 2024}
+\resumeItemListStart
+  \resumeItem{Launched as a \textbf{3}-tier family (\textbf{Opus}, \textbf{Sonnet}, \textbf{Haiku}).}
+  \resumeItem{Added native \textbf{vision} support, reading charts \& diagrams directly from images.}
+  \resumeItem{Extended context window to \textbf{200K} tokens across the family at general availability.}
+\resumeItemListEnd
+
+% [1-PAGE TIER: CUT]
+% Claude 1 / Claude Instant
+\resumeSubheading
+  {Anthropic, PBC}{San Francisco, CA}
+  {\textbf{Claude} \& \textbf{Claude Instant}}{Mar 2023 -- Mar 2024}
+\resumeItemListStart
+  \resumeItem{Shipped as Anthropic's first publicly available models via the Claude API.}
+  \resumeItem{Established \textbf{Constitutional AI} as the core alignment method from day one.}
+  \resumeItem{Reached a \textbf{100K}-token context window with \textbf{Claude 2.1}, then among the largest available.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+% ---------------- PROJECTS & RESEARCH ----------------
+% Ordered reverse-chronologically by END date (Present/Ongoing = most
+% recent), matching Rule 10 in `CV - Rules.md` -- not by start date.
+% Where two entries are both open-ended, the one with an actual dated
+% start (e.g. "Feb 2025 -- Present") is placed above a bare "Ongoing"
+% with no start date given, as the more specifically recent of the two.
+\section{Projects \& Research}
+\projectSubheadingListStart
+
+% [1-PAGE TIER: CUT]
+% Claude Code
+\projectSubheading
+  {Claude Code}
+  {-- \href{https://github.com/anthropics/claude-code}{GitHub} -- \href{https://docs.claude.com}{Docs}}
+  {Feb 2025 -- Present}
+\resumeItemListStart
+  \resumeItem{Brought agentic coding to the terminal, IDE \& web, reading \& editing full repositories.}
+  \resumeItem{Reached general availability alongside \textbf{Claude 4}, then added a web interface.}
+\resumeItemListEnd
+
+% [1-PAGE TIER: CUT]
+% Anthropic Cookbook
+\projectSubheading
+  {Anthropic Cookbook}
+  {-- \href{https://github.com/anthropics/anthropic-cookbook}{GitHub}}
+  {Ongoing}
+\resumeItemListStart
+  \resumeItem{Maintains open-source, runnable examples for retrieval, tool use \& multimodal prompting.}
+  \resumeItem{Used by developers as the reference starting point for building on the \textbf{Claude API}.}
+\resumeItemListEnd
+
+% [1-PAGE TIER: TRIM -- keep bullets 1 \& 3, cut bullet 2]
+% Model Context Protocol
+\projectSubheading
+  {Model Context Protocol}
+  {-- \href{https://www.anthropic.com/news/model-context-protocol}{Announcement} -- \href{https://github.com/modelcontextprotocol}{GitHub}}
+  {Nov 2024}
+\resumeItemListStart
+  \resumeItem{Open-sourced an \textbf{open standard} connecting models to tools, files \& live data.}
+  \resumeItem{Shipped SDKs in \textbf{Python} \& \textbf{TypeScript} plus reference servers.}
+  \resumeItem{Adopted industry-wide as a common protocol for agentic tool use beyond Anthropic's own models.}
+\resumeItemListEnd
+
+% [1-PAGE TIER: CUT]
+% Scaling Monosemanticity
+\projectSubheading
+  {Scaling Monosemanticity}
+  {-- \href{https://transformer-circuits.pub/2024/scaling-monosemanticity}{Paper}}
+  {May 2024}
+\resumeItemListStart
+  \resumeItem{Extended sparse-autoencoder methods to \textbf{Claude 3 Sonnet}, a production-scale model.}
+  \resumeItem{Surfaced millions of interpretable features, including deception \& bias concepts.}
+\resumeItemListEnd
+
+% [1-PAGE TIER: TRIM -- keep bullets 1 \& 3, cut bullet 2]
+% Constitutional AI paper
+\projectSubheading
+  {Constitutional AI}
+  {-- \href{https://arxiv.org/abs/2212.08073}{Paper}}
+  {Dec 2022}
+\resumeItemListStart
+  \resumeItem{Proposed training a model to critique \& revise outputs against a written constitution.}
+  \resumeItem{Reduced reliance on human labeling for harmlessness, using \textbf{AI feedback} (RLAIF).}
+  \resumeItem{Became the foundation alignment method for every subsequent Claude release.}
+\resumeItemListEnd
+
+% NOTE: third-party pre-deployment evaluation (METR, Apollo Research,
+% RSP/ASL thresholds) lives once, under Safety, Evaluation & Compliance
+% below -- not repeated here as a separate Projects & Research entry.
+
+\projectSubheadingListEnd
+
+% ---------------- TECHNICAL CAPABILITIES ----------------
+% [1-PAGE TIER: TRIM -- keep all 5 rows, but tighten wording if tight on
+%  space, e.g. drop "code execution", "/JavaScript", "RSP compliance".]
+\section{Technical Capabilities}
+\begin{compactitemize}
+  \resumeSubItem{\textbf{Reasoning \& Tool Use:}}{Extended thinking, tool-calling, computer use, code execution.}
+  \resumeSubItem{\textbf{Software Engineering:}}{Python, TypeScript, Bash, Git, Claude Code, Claude Agent SDK.}
+  \resumeSubItem{\textbf{Multimodal Understanding:}}{Vision (images, screenshots, PDFs), document \& diagram parsing.}
+  \resumeSubItem{\textbf{Integrations \& Protocols:}}{Model Context Protocol (MCP), function calling, RAG, REST/SDKs.}
+  \resumeSubItem{\textbf{Safety \& Alignment Techniques:}}{Constitutional AI, RLHF, red-teaming, interpretability.}
+\end{compactitemize}
+
+% ---------------- SAFETY, EVALUATION & COMPLIANCE ----------------
+\section{Safety, Evaluation \& Compliance}
+\projectSubheadingListStart
+
+% [1-PAGE TIER: TRIM -- keep bullet 1 only, cut bullet 2]
+% Third-Party Pre-Deployment Evaluation
+\cvCertification
+  {Third-Party Pre-Deployment Evaluation}
+  {METR, Apollo Research \& UK / US AI Safety Institutes}{Ongoing}
+\resumeItemListStart
+  \resumeItem{Undergoes independent testing for dangerous-capability \& autonomy risks pre-release.}
+  \resumeItem{Findings feed directly into the published \textbf{model/system card} for each release.}
+\resumeItemListEnd
+
+% [1-PAGE TIER: CUT]
+% Bug Bounty & Responsible Disclosure
+\cvCertification
+  {Bug Bounty \& Responsible Disclosure}
+  {Anthropic, PBC -- \href{https://www.anthropic.com}{HackerOne Program}}{Ongoing}
+\resumeItemListStart
+  \resumeItem{Runs a public vulnerability disclosure program covering the Claude API \& consumer products.}
+  \resumeItem{Rewards researchers for responsibly reporting jailbreaks, safety bypasses \& security issues.}
+\resumeItemListEnd
+
+\projectSubheadingListEnd
+
+% ---------------- INDUSTRY INITIATIVES ----------------
+% [1-PAGE TIER: CUT -- omit this entire section for a 1-page version]
+\section{Industry Initiatives}
+\projectSubheadingListStart
+\projectSubheading
+  {Frontier Model Forum -- Founding Member}
+  {}
+  {Jul 2023 -- Present}
+\resumeItemListStart
+  \resumeItem{Co-founded with \textbf{OpenAI}, \textbf{Google DeepMind} \& \textbf{Microsoft} on safety research.}
+  \resumeItem{Shares best practices on evaluation, red-teaming \& responsible scaling across member labs.}
+  \resumeItem{Coordinates with policymakers \& researchers on safety standards for frontier AI systems.}
+\resumeItemListEnd
+\projectSubheadingListEnd
+
+% ---------------- LANGUAGES ----------------
+% [1-PAGE TIER: CORE -- always keep, unchanged]
+\section{Languages}
+\vspace{-12pt}
+\begin{compactitemize}
+\begin{multicols}{2}
+  \resumeSubItem{\textbf{English:}}{Native fluency.}
+  \resumeSubItem{\textbf{Spanish:}}{Fluent.}
+  \resumeSubItem{\textbf{Mandarin:}}{Fluent.}
+  \resumeSubItem{\textbf{Japanese:}}{Fluent.}
+\end{multicols}
+\end{compactitemize}
+
+\end{document}
