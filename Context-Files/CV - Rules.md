@@ -47,7 +47,7 @@ External, one-shot document — full cost of a wrong first pass. Stop-and-wait, 
 
 1. **Strategy** — which knowledge-base material applies, which rules are active. State it, wait for confirmation.
 2. **Draft** — the full assembled bullet content, in readable form, with every rule above already applied. Wait for confirmation.
-3. **Commit & Verify** — assemble the approved content into the current `CV - Template.tex`, compile, and confirm every bullet renders on one line (Rule 1) and the page count matches the required length (Rule 14 or 15). If it doesn't fit, decide what to cut or compress based on the knowledge base and the rules above (Rule 21's density guidance, Rule 32's impact test, and so on) rather than a fixed derivation procedure — then recompile before delivering. Deliver the final LaTeX output.
+3. **Commit & Verify** — assemble the approved content into the current `CV - Template.tex`, compile, and confirm every bullet renders on one line (Rule 1) and the page count matches the required length (Rule 14 or 15). If it doesn't fit, decide what to cut or compress based on the knowledge base and the rules above (Rule 21's density guidance, Rule 32's impact test, and so on), then recompile before delivering. Deliver the final LaTeX output.
 
 Revisions requested *after* Commit use a lightweight changelog (original segment → new segment → reason/rule) rather than restaging from Strategy, unless the revision is substantial enough to change which knowledge-base material applies.
 
