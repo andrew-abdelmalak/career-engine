@@ -30,7 +30,7 @@ Every file in here must stay generic. Two tests before committing a change to an
 1. **No hardcoded personal examples.** A rule can describe a pattern ("flag a usable quote if the knowledge base has one"); it can never name a specific person's employer, quote, or entry. If removing the specific person from a sentence breaks it, the sentence is wrong.
 2. **No assumptions about the knowledge base's structure.** Say "check what the knowledge base says about X," never "check the table in section 2.1" — a user's file might not have a section 2.1.
 
-Cross-file references between rules files (e.g. `Cover Letter - Rules.md` pointing at `CV - Rules.md`) are only earned where a real structural dependency exists, not added for completeness. See `README.md`'s changelog for the reasoning already worked through on this.
+Cross-file references between rules files (e.g. `Cover Letter - Rules.md` pointing at `CV - Rules.md`) are only earned where a real structural dependency exists, not added for completeness.
 
 If you rename any file in `Context-Files/`, grep the whole repo for the old name first — `Project Setup.md` and the other rules files reference each other by exact filename, and a stale reference is a silent failure, not an error.
 
