@@ -14,6 +14,7 @@ Career Engine is a portable Claude Project template: a set of files someone past
 | `Project Setup.md` | The literal text to paste into a Claude Project's Name/Description/Instructions fields |
 | `Context-Files/` | Upload these into the Project's knowledge (Files) section as-is |
 | `Knowledge Base File Example/` | A structural template for a new user's own knowledge base — reference only, not uploaded to the live Project |
+| `assets/` | README preview images (compiled CV/cover letter screenshots) — not uploaded to the live Project |
 | `Internal/` | This file. Not for end users. |
 
 ## Editing `Context-Files/`
@@ -26,6 +27,8 @@ Every file in here must stay generic. Two tests before committing a change to an
 Cross-file references between rules files (e.g. `Cover Letter - Rules.md` pointing at `CV - Rules.md`) are only earned where a real structural dependency exists, not added for completeness.
 
 If you rename any file in `Context-Files/`, grep the whole repo for the old name first — `Project Setup.md` and the other rules files reference each other by exact filename, and a stale reference is a silent failure, not an error.
+
+If `CV - Template.tex` or `Cover Letter - Template.tex`'s illustrative content changes visibly (new section, reordered content, different header), recompile and regenerate the README's preview images in `assets/` — otherwise they go stale and show an older layout than what's actually in the repo.
 
 ## Editing `Project Setup.md`
 

@@ -12,6 +12,14 @@ Paste a few files into a Claude Project, add your own knowledge base, and you ge
 
 Nothing here is model-specific trivia or a locked-in example — the rules files are generic on purpose, so you can fork this, swap in your own knowledge base, and get the same quality without editing anything else.
 
+## Preview
+
+Compiled straight from `CV - Template.tex` and `Cover Letter - Template.tex` as they ship in this repo — the illustrative "Claude" persona content, not a rules-compliance reference (see the templates' own disclaimers).
+
+| CV — page 1 | CV — page 2 | Cover Letter |
+|---|---|---|
+| [![CV preview, page 1](assets/cv-preview-page-1.png)](assets/cv-preview-page-1.png) | [![CV preview, page 2](assets/cv-preview-page-2.png)](assets/cv-preview-page-2.png) | [![Cover letter preview](assets/cover-letter-preview.png)](assets/cover-letter-preview.png) |
+
 ## Folder structure
 
 | Path | What it is |
@@ -19,6 +27,7 @@ Nothing here is model-specific trivia or a locked-in example — the rules files
 | `Project Setup.md` | The text you paste into your Claude Project's Name / Description / Instructions fields |
 | `Context-Files/` | Upload every file in here to your Project's knowledge (Files) section, unchanged |
 | `Knowledge Base File Example/` | A template showing the structure your own knowledge base can follow — reference only, don't upload this one |
+| `assets/` | Preview images for this README — not uploaded to the Project |
 
 ## Quick start
 
