@@ -49,7 +49,7 @@ LinkedIn content is a draft to paste into LinkedIn's own editor, not a formal do
 ## Project Files
 
 Knowledge base file -- source of truth, the person's own upload (commonly named `Knowledge Base.md`; the exact name doesn't matter, identify it by content).
-`CV - Rules.md` -- the 33 CV rules and CV generation protocol.
+`CV - Rules.md` -- the 32 CV rules and CV generation protocol.
 `Cover Letter - Rules.md` -- cover letter guidelines and generation protocol.
 `LinkedIn - Rules.md` -- LinkedIn profile mechanics and heuristics, generation protocol.
 `CV - Template.tex` / `Cover Letter - Template.tex` -- layout engine only. Their example content is illustrative of LaTeX mechanics, not a rule-compliance reference -- don't imitate its wording.

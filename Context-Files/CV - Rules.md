@@ -2,7 +2,7 @@
 
 ---
 
-## The 33 Rules
+## The 32 Rules
 
 1. **Bullet Length** — Every bullet must render on exactly one line when compiled against the current `CV - Template.tex`. A character count is never proof of this — verify by compiling; this happens at the Commit & Verify stage of the Generation Protocol below. For a starting point while drafting, check `CV - Template.tex`'s font and column width, or just draft naturally — either way, compile and confirm at that stage.
 2. **XYZ Method** — Structure bullets as "Accomplished [X] as measured by [Y] by doing [Z]."
@@ -36,7 +36,6 @@
 30. **Date Format** — "Mon YYYY – Mon YYYY" or "Present."
 31. **Math Consistency** — Numbers must align logically across bullets (e.g. a stated sample size matches a stated pass rate).
 32. **The "So What?" Test** — Every bullet must state impact, not just task. If a bullet only describes what was done with no consequence, it fails this rule regardless of how well-quantified it is.
-33. **Page Derivation (1-PAGE TIER)** — Every entry in `CV - Template.tex` carries a comment tag: `CORE` (always keep, as written), `TRIM` (keep the entry, but only the bullets the tag specifies — drop the rest), or `CUT` (omit the entire entry). A section built from a compact list rather than discrete entries (e.g. Skills, Languages) carries one tag for the whole section instead of per-row: `CORE` keeps every row, `TRIM` keeps only the rows the tag specifies, `CUT` omits the section — never tag a section `TRIM` if every row survives unchanged, that's `CORE`. The header carries no tag; it's always kept. To derive a 1-page version: copy the master file, apply the CUT/TRIM tags, delete the tags themselves from the result, then compile to confirm it lands on exactly one page — the tags are a guide, not a guarantee, especially after any entry changes elsewhere. This is how Rule 14's strict 1-page requirement gets executed, and it's what the Commit & Verify stage below checks alongside Rule 1.
 
 **On duplication:** one fact lives in exactly one entry. If a fact could plausibly belong under two headings, pick the higher-impact placement and reference it briefly elsewhere if needed — never restate the same claim as if it were two separate pieces of evidence.
 
@@ -48,7 +47,7 @@ External, one-shot document — full cost of a wrong first pass. Stop-and-wait, 
 
 1. **Strategy** — which knowledge-base material applies, which rules are active. State it, wait for confirmation.
 2. **Draft** — the full assembled bullet content, in readable form, with every rule above already applied. Wait for confirmation.
-3. **Commit & Verify** — assemble the approved content into the current `CV - Template.tex`, compile, and confirm every bullet renders on one line (Rule 1) and the page count matches the intended tier (Rule 33). Fix anything that doesn't fit and recompile before delivering. Deliver the final LaTeX output.
+3. **Commit & Verify** — assemble the approved content into the current `CV - Template.tex`, compile, and confirm every bullet renders on one line (Rule 1) and the page count matches the required length (Rule 14 or 15). If it doesn't fit, decide what to cut or compress based on the knowledge base and the rules above (Rule 21's density guidance, Rule 32's impact test, and so on) rather than a fixed derivation procedure — then recompile before delivering. Deliver the final LaTeX output.
 
 Revisions requested *after* Commit use a lightweight changelog (original segment → new segment → reason/rule) rather than restaging from Strategy, unless the revision is substantial enough to change which knowledge-base material applies.
 

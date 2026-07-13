@@ -159,19 +159,15 @@
 %  CONTENT ZONE -- everything below is safe to edit/regenerate.
 %  This is the ONE source-of-truth file: every section, every
 %  entry, every bullet shape the engine supports. Compiled as-is,
-%  it IS the full master CV, and the only file needed to derive a
-%  1-page version -- no separate file required. Page count changes
-%  whenever entries change; verify by compiling.
-%
-%  Every entry below carries a "1-PAGE TIER" tag (CORE/TRIM/CUT) --
-%  see `CV - Rules.md` Rule 33 for what they mean and how to derive
-%  a 1-page version from this file.
+%  it IS the full master CV. Page count changes whenever entries
+%  change; verify by compiling. When a shorter version is needed
+%  (Rule 14/15), decide what to include directly from the knowledge
+%  base and the rules -- there is no fixed derivation procedure.
 %
 %  CONTENT DISCLAIMER: the "Claude" entries below exist to demonstrate
-%  command usage and the 1-PAGE TIER system only. Wording is
-%  illustrative, not a rule-compliance reference -- see
-%  `CV - Rules.md` for the actual CV rules. Do not copy phrasing
-%  patterns from this file into a real CV.
+%  command usage only. Wording is illustrative, not a rule-compliance
+%  reference -- see `CV - Rules.md` for the actual CV rules. Do not
+%  copy phrasing patterns from this file into a real CV.
 % ============================================================
 
 % ---------------- HEADER ----------------
@@ -203,7 +199,6 @@
 \end{documentHeader}
 % NOTE: email/phone above are illustrative placeholders (Claude has no
 % personal inbox or phone line) -- everything else is a real, live link.
-% Header is always kept -- there is no 1-PAGE TIER tag for it.
 
 % ---------------- EXPERIENCE ----------------
 % Renamed from the original "Model Releases" label to match the generic
@@ -212,7 +207,6 @@
 \section{Experience}
 \resumeSubHeadingListStart
 
-% [1-PAGE TIER: TRIM -- keep bullets 1-3, cut bullet 4]
 % Claude Opus 4.8 / Sonnet 5 / Haiku 4.5
 \resumeSubheading
   {Anthropic, PBC \textmd{\textit{-- \href{https://www.anthropic.com/news}{Announcements}}}}{San Francisco, CA}
@@ -224,7 +218,6 @@
   \resumeItem{Supports a \textbf{200K}-token context window, with extended windows in select deployments.}
 \resumeItemListEnd
 
-% [1-PAGE TIER: TRIM -- keep bullets 1-3, cut bullet 4]
 % Claude 4 Generation
 \resumeSubheading
   {Anthropic, PBC}{San Francisco, CA}
@@ -236,7 +229,6 @@
   \resumeItem{Expanded enterprise adoption via \textbf{Claude for Enterprise} and deeper \textbf{MCP} integrations.}
 \resumeItemListEnd
 
-% [1-PAGE TIER: CORE -- all 3 bullets now fit; keep as-is]
 % Claude 3.7 Sonnet
 \resumeSubheading
   {Anthropic, PBC}{San Francisco, CA}
@@ -247,7 +239,6 @@
   \resumeItem{Improved agentic coding, becoming a preferred model for \textbf{SWE-bench}-style tasks.}
 \resumeItemListEnd
 
-% [1-PAGE TIER: CUT -- omit this entire entry for a 1-page version]
 % Claude 3.5 Sonnet (New) -- Computer Use
 \resumeSubheading
   {Anthropic, PBC \textmd{\textit{-- \href{https://www.anthropic.com/news/3-5-models-and-computer-use}{Announcement}}}}{San Francisco, CA}
@@ -258,7 +249,6 @@
   \resumeItem{Opened computer use to developers via the \textbf{API}, enabling desktop-control agents.}
 \resumeItemListEnd
 
-% [1-PAGE TIER: CUT]
 % Claude 3.5 Sonnet
 \resumeSubheading
   {Anthropic, PBC}{San Francisco, CA}
@@ -269,7 +259,6 @@
   \resumeItem{Became Anthropic's fastest mid-tier model at the time, balancing intelligence with low latency.}
 \resumeItemListEnd
 
-% [1-PAGE TIER: CUT]
 % Claude 3 Family
 \resumeSubheading
   {Anthropic, PBC}{San Francisco, CA}
@@ -280,7 +269,6 @@
   \resumeItem{Extended context window to \textbf{200K} tokens across the family at general availability.}
 \resumeItemListEnd
 
-% [1-PAGE TIER: CUT]
 % Claude 1 / Claude Instant
 \resumeSubheading
   {Anthropic, PBC}{San Francisco, CA}
@@ -296,8 +284,6 @@
 % ---------------- SKILLS ----------------
 % Renamed from the original "Technical Capabilities" label to match
 % CV - Rules.md Rule 12's vocabulary; content unchanged.
-% [1-PAGE TIER: CORE -- keep all 5 rows as-is; see CV - Rules.md Rule 33
-%  on section-level tags for compact-list sections.]
 \section{Skills}
 \begin{compactitemize}
   \resumeSubItem{\textbf{Reasoning \& Tool Use:}}{Extended thinking, tool-calling, computer use, code execution.}
@@ -312,7 +298,6 @@
 \section{Projects \& Research}
 \projectSubheadingListStart
 
-% [1-PAGE TIER: CUT]
 % Claude Code
 \projectSubheading
   {Claude Code}
@@ -323,7 +308,6 @@
   \resumeItem{Reached general availability alongside \textbf{Claude 4}, then added a web interface.}
 \resumeItemListEnd
 
-% [1-PAGE TIER: CUT]
 % Anthropic Cookbook
 \projectSubheading
   {Anthropic Cookbook}
@@ -334,7 +318,6 @@
   \resumeItem{Used by developers as the reference starting point for building on the \textbf{Claude API}.}
 \resumeItemListEnd
 
-% [1-PAGE TIER: TRIM -- keep bullets 1 \& 3, cut bullet 2]
 % Model Context Protocol
 \projectSubheading
   {Model Context Protocol}
@@ -346,7 +329,6 @@
   \resumeItem{Adopted industry-wide as a common protocol for agentic tool use beyond Anthropic's own models.}
 \resumeItemListEnd
 
-% [1-PAGE TIER: CUT]
 % Scaling Monosemanticity
 \projectSubheading
   {Scaling Monosemanticity}
@@ -357,7 +339,6 @@
   \resumeItem{Surfaced millions of interpretable features, including deception \& bias concepts.}
 \resumeItemListEnd
 
-% [1-PAGE TIER: TRIM -- keep bullets 1 \& 3, cut bullet 2]
 % Constitutional AI paper
 \projectSubheading
   {Constitutional AI}
@@ -381,7 +362,6 @@
 \section{Certifications}
 \projectSubheadingListStart
 
-% [1-PAGE TIER: TRIM -- keep bullet 1 only, cut bullet 2]
 % Third-Party Pre-Deployment Evaluation
 \cvCertification
   {Third-Party Pre-Deployment Evaluation}
@@ -391,7 +371,6 @@
   \resumeItem{Findings feed directly into the published \textbf{model/system card} for each release.}
 \resumeItemListEnd
 
-% [1-PAGE TIER: CUT]
 % Bug Bounty & Responsible Disclosure
 \cvCertification
   {Bug Bounty \& Responsible Disclosure}
@@ -410,7 +389,6 @@
 \section{Leadership}
 \projectSubheadingListStart
 
-% [1-PAGE TIER: CUT]
 % Frontier Model Forum
 \projectSubheading
   {Frontier Model Forum -- Founding Member}
@@ -429,8 +407,6 @@
 % "Education" section; content unchanged.
 \section{Education}
 \resumeSubHeadingListStart
-% [1-PAGE TIER: TRIM -- keep the heading + multicols stat pair; cut the
-%  fine-tuning-cadence sub-entry and its dash sub-bullet below.]
 % Uses a distinct fact (RLHF cadence) from the Constitutional AI facts
 % under Projects & Research above -- see CV - Rules.md's "On duplication."
 \resumeSubheading
@@ -451,7 +427,6 @@
 \resumeSubHeadingListEnd
 
 % ---------------- LANGUAGES ----------------
-% [1-PAGE TIER: CORE -- always keep, unchanged]
 \section{Languages}
 \vspace{-12pt}
 \begin{compactitemize}
