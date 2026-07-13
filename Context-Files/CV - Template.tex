@@ -54,11 +54,11 @@
 \setlist[itemize,1]{leftmargin=*, topsep=6pt, itemsep=6pt, parsep=0pt, before={\vspace{2pt}}}
 % Level 2: bullets within an entry
 \setlist[itemize,2]{leftmargin=2em, topsep=3pt, itemsep=2pt, parsep=0pt}
-% Compact list -- used by Technical Capabilities & Languages
+% Compact list -- used by Skills & Languages
 \newlist{compactitemize}{itemize}{1}
 \setlist[compactitemize]{label=\textbullet, labelsep=0.5em, leftmargin=*, topsep=4pt, itemsep=2pt, parsep=0pt, before={\vspace{2pt}}}
 \renewcommand{\labelitemii}{$\circ$}
-% Dash sub-bullets -- one level deeper than a normal entry (e.g. inside Training & Development)
+% Dash sub-bullets -- one level deeper than a normal entry (e.g. inside Education)
 \newcommand{\resumeSubBulletListStart}{\begin{itemize}[label=--, nosep, leftmargin=2em]}
 \newcommand{\resumeSubBulletListEnd}{\end{itemize}}
 
@@ -73,10 +73,10 @@
 % -------------------- 7. ENTRY COMMANDS --------------------------
 % A single bullet, fixed 10/12 font sizing for consistent leading
 \newcommand{\resumeItem}[1]{\item{\fontsize{10}{12}\selectfont #1}}
-% A bullet with a bold leading label (Technical Capabilities, Languages)
+% A bullet with a bold leading label (Skills, Languages)
 \newcommand{\resumeSubItem}[2]{\resumeItem{\textbf{#1} #2}}
 % Two-line entry: Org/Institution + Location, then Role + Date
-% Used by: Training & Development, Model Releases (Experience)
+% (see COMMAND REFERENCE below for which sections use this)
 \newcommand{\resumeSubheading}[4]{%
   \item
   \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
@@ -85,7 +85,7 @@
   \end{tabular*}%
 }
 % One-line entry: Title + italic subtitle, Date
-% Used by: Projects & Research, Industry Initiatives
+% (see COMMAND REFERENCE below for which sections use this)
 \newcommand{\projectSubheading}[3]{%
   \item
   \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
@@ -124,15 +124,15 @@
 %
 %  \resumeSubheading{Org}{Location}{Role}{Dates}
 %      Two-line header entry. Org/Location on row 1, Role/Dates on row 2.
-%      Used by: Training & Development, Model Releases.
+%      Used by: Education, Experience.
 %
 %  \projectSubheading{Title}{Subtitle}{Date}
 %      One-line header entry. Title + italic subtitle on the left, date right.
-%      Used by: Projects & Research, Industry Initiatives.
+%      Used by: Projects & Research, Leadership.
 %
 %  \cvCertification{Title}{Issuer}{Date}
 %      Two-line header entry for certifications/courses/evaluations.
-%      Used by: Safety, Evaluation & Compliance.
+%      Used by: Certifications.
 %
 %  \resumeItem{text}                 -- a single bullet
 %  \resumeSubItem{Bold label}{text}  -- a bullet with a bold leading label
@@ -146,7 +146,7 @@
 %  \resumeSubBulletListStart / \resumeSubBulletListEnd
 %      A dash-style nested bullet list, one level deeper than normal.
 %  compactitemize (environment)
-%      Bullet list used for Technical Capabilities / Languages rows.
+%      Bullet list used for Skills / Languages rows.
 %
 %  Bullet length -- font (10pt Charter) and column width (0.97\textwidth)
 %  are the drafting reference; no fixed character count (CV - Rules.md
@@ -205,35 +205,11 @@
 % personal inbox or phone line) -- everything else is a real, live link.
 % Header is always kept -- there is no 1-PAGE TIER tag for it.
 
-% ---------------- TRAINING & DEVELOPMENT ----------------
-\section{Training \& Development}
-\resumeSubHeadingListStart
-% [1-PAGE TIER: TRIM -- keep the heading + multicols stat pair; cut the
-%  fine-tuning-cadence sub-entry and its dash sub-bullet below.]
-% NOTE: full Constitutional AI facts (RLAIF, written constitution) live
-% once, under Projects & Research below. This sub-entry demonstrates
-% \resumeSubBulletListStart with a DIFFERENT, non-duplicated fact --
-% don't restate the Projects & Research content here. See `CV - Rules.md`,
-% "On duplication."
-\resumeSubheading
-  {Anthropic, PBC}{San Francisco, CA}
-  {Pretraining, Fine-Tuning \& Constitutional AI}{Jan 2021 -- Present}
-\resumeItemListStart
-\educationMulticolVSpaceBefore
-\begin{multicols}{2}
-  \resumeItem{\textbf{Knowledge cutoff:} May 2025.}
-  \resumeItem{\textbf{Context window:} up to \textbf{1M} tokens.}
-\end{multicols}
-\educationMulticolVSpaceAfter
-\resumeItem{\textbf{Fine-Tuning Cadence} \textit{-- Post-Training} \hfill Ongoing}
-\resumeSubBulletListStart
-  \resumeItem{Iterates through \textbf{RLHF} and targeted fine-tuning passes between major model releases.}
-\resumeSubBulletListEnd
-\resumeItemListEnd
-\resumeSubHeadingListEnd
-
-% ---------------- MODEL RELEASES ----------------
-\section{Model Releases}
+% ---------------- EXPERIENCE ----------------
+% Renamed from the original "Model Releases" label to match the generic
+% vocabulary CV - Rules.md Rules 8/12 use for section order (Contact ->
+% Experience -> Skills -> Projects -> Education). Entry content unchanged.
+\section{Experience}
 \resumeSubHeadingListStart
 
 % [1-PAGE TIER: TRIM -- keep bullets 1-3, cut bullet 4]
@@ -317,12 +293,22 @@
 
 \resumeSubHeadingListEnd
 
+% ---------------- SKILLS ----------------
+% Renamed from the original "Technical Capabilities" label to match
+% CV - Rules.md Rule 12's vocabulary; content unchanged.
+% [1-PAGE TIER: CORE -- keep all 5 rows as-is; see CV - Rules.md Rule 33
+%  on section-level tags for compact-list sections.]
+\section{Skills}
+\begin{compactitemize}
+  \resumeSubItem{\textbf{Reasoning \& Tool Use:}}{Extended thinking, tool-calling, computer use, code execution.}
+  \resumeSubItem{\textbf{Software Engineering:}}{Python, TypeScript, Bash, Git, Claude Code, Claude Agent SDK.}
+  \resumeSubItem{\textbf{Multimodal Understanding:}}{Vision (images, screenshots, PDFs), document \& diagram parsing.}
+  \resumeSubItem{\textbf{Integrations \& Protocols:}}{Model Context Protocol (MCP), function calling, RAG, REST/SDKs.}
+  \resumeSubItem{\textbf{Safety \& Alignment Techniques:}}{Constitutional AI, RLHF, red-teaming, interpretability.}
+\end{compactitemize}
+
 % ---------------- PROJECTS & RESEARCH ----------------
-% Ordered reverse-chronologically by END date (Present/Ongoing = most
-% recent), matching Rule 10 in `CV - Rules.md` -- not by start date.
-% Where two entries are both open-ended, the one with an actual dated
-% start (e.g. "Feb 2025 -- Present") is placed above a bare "Ongoing"
-% with no start date given, as the more specifically recent of the two.
+% Ordered per CV - Rules.md Rule 10.
 \section{Projects \& Research}
 \projectSubheadingListStart
 
@@ -383,26 +369,16 @@
   \resumeItem{Became the foundation alignment method for every subsequent Claude release.}
 \resumeItemListEnd
 
-% NOTE: third-party pre-deployment evaluation (METR, Apollo Research,
-% RSP/ASL thresholds) lives once, under Safety, Evaluation & Compliance
-% below -- not repeated here as a separate Projects & Research entry.
+% NOTE: third-party pre-deployment evaluation lives once, under
+% Certifications below -- see CV - Rules.md's "On duplication."
 
 \projectSubheadingListEnd
 
-% ---------------- TECHNICAL CAPABILITIES ----------------
-% [1-PAGE TIER: TRIM -- keep all 5 rows, but tighten wording if tight on
-%  space, e.g. drop "code execution", "/JavaScript", "RSP compliance".]
-\section{Technical Capabilities}
-\begin{compactitemize}
-  \resumeSubItem{\textbf{Reasoning \& Tool Use:}}{Extended thinking, tool-calling, computer use, code execution.}
-  \resumeSubItem{\textbf{Software Engineering:}}{Python, TypeScript, Bash, Git, Claude Code, Claude Agent SDK.}
-  \resumeSubItem{\textbf{Multimodal Understanding:}}{Vision (images, screenshots, PDFs), document \& diagram parsing.}
-  \resumeSubItem{\textbf{Integrations \& Protocols:}}{Model Context Protocol (MCP), function calling, RAG, REST/SDKs.}
-  \resumeSubItem{\textbf{Safety \& Alignment Techniques:}}{Constitutional AI, RLHF, red-teaming, interpretability.}
-\end{compactitemize}
-
-% ---------------- SAFETY, EVALUATION & COMPLIANCE ----------------
-\section{Safety, Evaluation \& Compliance}
+% ---------------- CERTIFICATIONS ----------------
+% Renamed from the original "Safety, Evaluation & Compliance" label to
+% match the Knowledge Base Example's "Certifications & Workshops"
+% section and CV - Rules.md's vocabulary; content unchanged.
+\section{Certifications}
 \projectSubheadingListStart
 
 % [1-PAGE TIER: TRIM -- keep bullet 1 only, cut bullet 2]
@@ -427,10 +403,15 @@
 
 \projectSubheadingListEnd
 
-% ---------------- INDUSTRY INITIATIVES ----------------
-% [1-PAGE TIER: CUT -- omit this entire section for a 1-page version]
-\section{Industry Initiatives}
+% ---------------- LEADERSHIP ----------------
+% Renamed from the original "Industry Initiatives" label to match the
+% Knowledge Base Example's "Leadership & Extracurricular" section;
+% content unchanged.
+\section{Leadership}
 \projectSubheadingListStart
+
+% [1-PAGE TIER: CUT]
+% Frontier Model Forum
 \projectSubheading
   {Frontier Model Forum -- Founding Member}
   {}
@@ -441,6 +422,33 @@
   \resumeItem{Coordinates with policymakers \& researchers on safety standards for frontier AI systems.}
 \resumeItemListEnd
 \projectSubheadingListEnd
+
+% ---------------- EDUCATION ----------------
+% Renamed from the original "Training & Development" label to match
+% CV - Rules.md Rules 8/12's vocabulary and the Knowledge Base Example's
+% "Education" section; content unchanged.
+\section{Education}
+\resumeSubHeadingListStart
+% [1-PAGE TIER: TRIM -- keep the heading + multicols stat pair; cut the
+%  fine-tuning-cadence sub-entry and its dash sub-bullet below.]
+% Uses a distinct fact (RLHF cadence) from the Constitutional AI facts
+% under Projects & Research above -- see CV - Rules.md's "On duplication."
+\resumeSubheading
+  {Anthropic, PBC}{San Francisco, CA}
+  {Pretraining, Fine-Tuning \& Constitutional AI}{Jan 2021 -- Present}
+\resumeItemListStart
+\educationMulticolVSpaceBefore
+\begin{multicols}{2}
+  \resumeItem{\textbf{Knowledge cutoff:} May 2025.}
+  \resumeItem{\textbf{Context window:} up to \textbf{1M} tokens.}
+\end{multicols}
+\educationMulticolVSpaceAfter
+\resumeItem{\textbf{Fine-Tuning Cadence} \textit{-- Post-Training} \hfill Ongoing}
+\resumeSubBulletListStart
+  \resumeItem{Iterates through \textbf{RLHF} and targeted fine-tuning passes between major model releases.}
+\resumeSubBulletListEnd
+\resumeItemListEnd
+\resumeSubHeadingListEnd
 
 % ---------------- LANGUAGES ----------------
 % [1-PAGE TIER: CORE -- always keep, unchanged]
